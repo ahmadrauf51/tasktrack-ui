@@ -131,7 +131,7 @@ const CreateTaskModal = () => {
                       className="block w-full p-2.5 text-sm text-gray-900 border rounded-lg bg-gray-50 dark:bg-gray-600 dark:text-white"
                     >
                       <option value="" disabled>
-                        Select a task
+                        {tasks.length ? "Select a task" : "No Tasks Available"}
                       </option>
                       {tasks?.map((task) => (
                         <option key={task.id} value={task.id}>
