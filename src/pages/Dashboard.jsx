@@ -60,9 +60,9 @@ export const Dashboard = () => {
     };
 
     const handleEditTask = (task) => {
-        dispatch(setEditingTask(task)); // Set the task to be edited
-        dispatch(setId(task.id)); // Set the task to be edited
-        dispatch(openEditModal()); // Open the modal
+        dispatch(setEditingTask(task));
+        dispatch(setId(task.id));
+        dispatch(openEditModal());
     };
 
     const handleViewTask = (task) => {

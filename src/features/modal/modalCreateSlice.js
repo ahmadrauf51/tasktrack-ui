@@ -1,17 +1,16 @@
-// src/features/modalCreate/modalCreateSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isOpen: false,
-  title: '',
-  description: '',
-  status: '',
+  title: "",
+  description: "",
+  status: "",
   showTaskSelect: false,
   parent_task_id: null,
 };
 
 const modalCreateSlice = createSlice({
-  name: 'modalCreate',
+  name: "modalCreate",
   initialState,
   reducers: {
     openCreateModal: (state) => {
@@ -19,9 +18,9 @@ const modalCreateSlice = createSlice({
     },
     closeCreateModal: (state) => {
       state.isOpen = false;
-      state.title = '';
-      state.description = '';
-      state.status = '';
+      state.title = "";
+      state.description = "";
+      state.status = "";
       state.showTaskSelect = false;
       state.parent_task_id = null;
     },

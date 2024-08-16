@@ -10,7 +10,6 @@ const api = axios.create({
   },
 });
 
-// Add a request interceptor to include the token in the headers if it exists in the cookies
 api.interceptors.request.use(
   (config) => {
     const token = Cookies.get('access_token');
@@ -28,8 +27,7 @@ api.interceptors.request.use(
 export const registerUser = async (data) => {
   try {
     const response = await api.post('api/register/user', data);
-    // Set token in a cookie
-    Cookies.set('access_token', response.data.data.access_token, { expires: 7 }); // Expires in 7 days
+    Cookies.set('access_token', response.data.data.access_token, { expires: 7 }); 
     Cookies.set('user_id', response.data.data.user_id);
     return response.data;
   } catch (error) {
@@ -42,7 +40,6 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
   try {
     const response = await api.post('api/login/user', data);
-    // Set token in a cookie
     Cookies.set('access_token', response.data.access_token, { expires: 7 });
     Cookies.set('user_id', response.data.data.user_id);
     return response.data;
@@ -55,10 +52,7 @@ export const loginUser = async (data) => {
 // Logout a user
 export const logoutUser = async () => {
   try {
-    // Optionally, make a request to the backend to invalidate the token
     await api.post('api/logout/user');
-
-    // Clear the cookies
     Cookies.remove('access_token');
     Cookies.remove('user_id');
   } catch (error) {
@@ -67,7 +61,7 @@ export const logoutUser = async () => {
   }
 };
 
-// CRUD Operations (unchanged)
+// CRUD Operations 
 export const createResource = async (data) => {
   try {
     const response = await api.post('api/task', data);
